@@ -78,10 +78,11 @@
               el.textContent = t === 'dark' ? DARK_IFRAME_CSS : '';
             } catch (_) {}
           }
+          // Add listener first to avoid the race where load fires before we register
+          f.addEventListener('load', paint, { once: true });
           if (f.contentDocument && f.contentDocument.readyState === 'complete') {
+            f.removeEventListener('load', paint);
             paint();
-          } else {
-            f.addEventListener('load', paint, { once: true });
           }
         });
       }
