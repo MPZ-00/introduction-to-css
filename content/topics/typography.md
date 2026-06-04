@@ -102,7 +102,7 @@ A unitless number like `1.5` scales with the font size, so `1rem` text and `2rem
 
 {{< demo height="200" >}}
 <style>
-  p { border-bottom: 1px solid #eee; padding: 4px 0; }
+  p { border-bottom: 1px solid var(--ds-border); padding: 4px 0; }
   .left   { text-align: left; }
   .center { text-align: center; }
   .right  { text-align: right; }

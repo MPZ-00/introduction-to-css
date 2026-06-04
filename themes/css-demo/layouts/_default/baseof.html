@@ -49,9 +49,47 @@
       const root = document.documentElement;
       const btn  = document.getElementById('themeToggle');
 
+      const IFRAME_COLORS = {
+        dark:  { bg: '#1a1730', fg: '#e8e4ff' },
+        light: { bg: '#ffffff', fg: '#222222' },
+      };
+
+      // override the CSS vars injected by the demo shortcode
+      // --ds-muted: #c0b8e8 on #1a1730 = ~9.4:1 contrast (AAA)
+      const DARK_IFRAME_CSS =
+        ':root{--ds-bg:#1a1730;--ds-surface:#2d2a45;--ds-surface-alt:#2a1f4a;' +
+        '--ds-border:#2d2a45;--ds-muted:#c0b8e8;--ds-text:#e8e4ff}';
+
+      function paintIframes(t) {
+        const c = IFRAME_COLORS[t];
+        document.querySelectorAll('.demo-iframe').forEach(function (f) {
+          function paint() {
+            try {
+              const doc = f.contentDocument || f.contentWindow.document;
+              if (!doc || !doc.body) return;
+              doc.body.style.background = c.bg;
+              doc.body.style.color      = c.fg;
+              var el = doc.getElementById('__dm');
+              if (!el) {
+                el = doc.createElement('style');
+                el.id = '__dm';
+                doc.head.appendChild(el);
+              }
+              el.textContent = t === 'dark' ? DARK_IFRAME_CSS : '';
+            } catch (_) {}
+          }
+          if (f.contentDocument && f.contentDocument.readyState === 'complete') {
+            paint();
+          } else {
+            f.addEventListener('load', paint, { once: true });
+          }
+        });
+      }
+
       function applyTheme(t) {
         root.setAttribute('data-theme', t);
         localStorage.setItem('theme', t);
+        paintIframes(t);
       }
 
       const saved = localStorage.getItem('theme') ||

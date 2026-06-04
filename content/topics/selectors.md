@@ -86,7 +86,7 @@ Square brackets match on attribute values.
 {{< demo height="200" >}}
 <style>
   li:first-child   { font-weight: bold; color: purple; }
-  li:nth-child(2n) { background: #f0f0f0; }  /* every even item */
+  li:nth-child(2n) { background: var(--ds-surface); }  /* every even item */
   a:hover          { background: gold; text-decoration: none; }
   a:focus          { outline: 3px solid orange; }
 </style>

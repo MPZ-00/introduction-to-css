@@ -26,7 +26,7 @@ Every element is a box with four layers, from inside out: content, padding, bord
   content<br>
   <small>(140 px wide)</small>
 </div>
-<p style="text-align:center;font-size:.8rem;color:#555">
+<p style="text-align:center;font-size:.8rem;color:var(--ds-muted)">
   + 24px padding on each side<br>
   + 6px border on each side<br>
   + 20px margin on each side
@@ -81,7 +81,7 @@ Vertical margins between adjacent block elements *collapse*: only the larger one
 </style>
 <div class="a">Box A — margin-bottom: 40px</div>
 <div class="b">Box B — margin-top: 20px</div>
-<p style="font-size:.8rem;color:#666;margin-top:8px">
+<p style="font-size:.8rem;color:var(--ds-muted);margin-top:8px">
   Actual gap = 40px (the larger of the two), not 60px
 </p>
 {{< /demo >}}

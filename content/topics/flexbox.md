@@ -14,7 +14,7 @@ Flexbox is a layout model for arranging items in a single row or column. Add `di
   .row {
     display: flex;
     gap: 8px;
-    background: #ede9fe;
+    background: var(--ds-surface-alt);
     padding: 12px;
     border-radius: 6px;
   }
@@ -39,10 +39,10 @@ Default is `row`. Set it to `column` to stack items vertically.
 
 {{< demo height="220" >}}
 <style>
-  .flex { display:flex; gap:6px; background:#f3f4f6; padding:10px; border-radius:6px; margin-bottom:8px; }
+  .flex { display:flex; gap:6px; background:var(--ds-surface); padding:10px; border-radius:6px; margin-bottom:8px; }
   .flex.col { flex-direction: column; }
   .i { background:#7c3aed; color:#fff; padding:8px 14px; border-radius:4px; font-weight:bold; }
-  small { color:#666; font-size:.75rem; }
+  small { color:var(--ds-muted); font-size:.75rem; }
 </style>
 <small>flex-direction: row (default)</small>
 <div class="flex">
@@ -60,9 +60,9 @@ Distributes items along the **main axis** (horizontal in row, vertical in column
 
 {{< demo height="320" >}}
 <style>
-  .f { display:flex; gap:6px; background:#f3f4f6; padding:8px; border-radius:6px; margin-bottom:6px; }
+  .f { display:flex; gap:6px; background:var(--ds-surface); padding:8px; border-radius:6px; margin-bottom:6px; }
   .i { background:#7c3aed; color:#fff; padding:8px 14px; border-radius:4px; font-weight:bold; }
-  small { color:#666; font-size:.75rem; display:block; margin-top:4px; }
+  small { color:var(--ds-muted); font-size:.75rem; display:block; margin-top:4px; }
 </style>
 <small>flex-start (default)</small>
 <div class="f" style="justify-content:flex-start"><div class="i">A</div><div class="i">B</div><div class="i">C</div></div>
@@ -82,10 +82,10 @@ Aligns items along the **cross axis** (vertical in row).
 
 {{< demo height="300" >}}
 <style>
-  .f { display:flex; gap:6px; background:#f3f4f6; padding:8px; border-radius:6px; margin-bottom:6px; height:70px; }
+  .f { display:flex; gap:6px; background:var(--ds-surface); padding:8px; border-radius:6px; margin-bottom:6px; height:70px; }
   .i { background:#7c3aed; color:#fff; padding:8px 14px; border-radius:4px; font-weight:bold; }
   .tall { height:50px; display:flex; align-items:center; }
-  small { color:#666; font-size:.75rem; display:block; }
+  small { color:var(--ds-muted); font-size:.75rem; display:block; }
 </style>
 <small>flex-start</small>
 <div class="f" style="align-items:flex-start"><div class="i">A</div><div class="i tall">B</div><div class="i">C</div></div>
@@ -103,7 +103,7 @@ By default items don't wrap. `flex-wrap: wrap` lets them flow to the next row.
 
 {{< demo height="160" >}}
 <style>
-  .wrap { display:flex; flex-wrap:wrap; gap:6px; background:#f3f4f6; padding:8px; border-radius:6px; max-width:280px; }
+  .wrap { display:flex; flex-wrap:wrap; gap:6px; background:var(--ds-surface); padding:8px; border-radius:6px; max-width:280px; }
   .i { background:#7c3aed; color:#fff; padding:8px 14px; border-radius:4px; font-weight:bold; }
 </style>
 <div class="wrap">
@@ -127,7 +127,7 @@ Shorthand: `flex: grow shrink basis`
 
 {{< demo height="100" >}}
 <style>
-  .f { display:flex; gap:6px; background:#f3f4f6; padding:8px; border-radius:6px; }
+  .f { display:flex; gap:6px; background:var(--ds-surface); padding:8px; border-radius:6px; }
   .i { background:#7c3aed; color:#fff; padding:8px 12px; border-radius:4px; font-weight:bold; font-size:.85rem; }
 </style>
 <div class="f">
@@ -156,7 +156,7 @@ The quickest way to center something in both directions:
     justify-content: center;
     align-items: center;
     height: 100px;
-    background: #ede9fe;
+    background: var(--ds-surface-alt);
     border-radius: 8px;
   }
   .box {

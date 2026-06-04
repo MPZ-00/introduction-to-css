@@ -146,7 +146,7 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   <div class="c">D</div>
   <div class="c">E</div>
 </div>
-<p style="font-size:.75rem;color:#666;margin-top:6px">Resize the browser. Columns reflow automatically.</p>
+<p style="font-size:.75rem;color:var(--ds-muted);margin-top:6px">Resize the browser. Columns reflow automatically.</p>
 {{< /demo >}}
 
 ## Grid vs Flexbox

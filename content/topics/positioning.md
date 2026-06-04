@@ -17,7 +17,7 @@ Stays in the flow but can be nudged with `top`/`right`/`bottom`/`left`, relative
 
 {{< demo height="160" >}}
 <style>
-  .row { display:flex; gap:8px; align-items:flex-start; padding:16px; background:#f3f4f6; border-radius:6px; }
+  .row { display:flex; gap:8px; align-items:flex-start; padding:16px; background:var(--ds-surface); border-radius:6px; }
   .box { width:70px; height:50px; background:#7c3aed; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:4px; font-weight:bold; }
   .moved { position: relative; top: 16px; left: 12px; background: #a78bfa; }
 </style>
@@ -26,7 +26,7 @@ Stays in the flow but can be nudged with `top`/`right`/`bottom`/`left`, relative
   <div class="box moved">2</div>
   <div class="box">3</div>
 </div>
-<p style="font-size:.8rem;color:#555;margin-top:8px">Box 2 is nudged — its original space is still reserved, so Box 3 is not displaced.</p>
+<p style="font-size:.8rem;color:var(--ds-muted);margin-top:8px">Box 2 is nudged — its original space is still reserved, so Box 3 is not displaced.</p>
 {{< /demo >}}
 
 ## absolute
@@ -59,7 +59,7 @@ Pulled out of the flow entirely. Positions against the nearest ancestor with a n
   <div class="label">position: relative</div>
   <div class="badge">3</div>
 </div>
-<p style="font-size:.8rem;color:#555;margin-top:8px">The badge sits at top-right of the parent because the parent is <code>position: relative</code>.</p>
+<p style="font-size:.8rem;color:var(--ds-muted);margin-top:8px">The badge sits at top-right of the parent because the parent is <code>position: relative</code>.</p>
 {{< /demo >}}
 
 ## fixed

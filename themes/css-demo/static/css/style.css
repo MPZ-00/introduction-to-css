@@ -232,7 +232,7 @@ body {
 
 .demo-preview {
   padding: 0;
-  background: #fff;
+  background: var(--surface);
 }
 
 .demo-iframe {

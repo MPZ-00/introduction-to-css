@@ -43,7 +43,7 @@ Each value produces a different feel. Hover the tracks to compare.
 {{< demo height="220" >}}
 <style>
   .bar { height: 36px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-  .track { flex: 1; height: 10px; background: #e5e7eb; border-radius: 99px; position: relative; overflow: hidden; }
+  .track { flex: 1; height: 10px; background: var(--ds-surface); border-radius: 99px; position: relative; overflow: hidden; }
   .dot {
     width: 28px; height: 28px; border-radius: 50%;
     background: #7c3aed; position: absolute; top: -9px; left: 0;
@@ -54,13 +54,13 @@ Each value produces a different feel. Hover the tracks to compare.
   .linear    { transition-timing-function: linear; }
   .ease-in   { transition-timing-function: ease-in; }
   .ease-out  { transition-timing-function: ease-out; }
-  label { font-size: .8rem; color: #555; width: 90px; text-align: right; }
+  label { font-size: .8rem; color: var(--ds-muted); width: 90px; text-align: right; }
 </style>
 <div class="bar"><label>ease</label><div class="track"><div class="dot ease"></div></div></div>
 <div class="bar"><label>linear</label><div class="track"><div class="dot linear"></div></div></div>
 <div class="bar"><label>ease-in</label><div class="track"><div class="dot ease-in"></div></div></div>
 <div class="bar"><label>ease-out</label><div class="track"><div class="dot ease-out"></div></div></div>
-<p style="font-size:.75rem;color:#888;margin-top:4px">Hover a track to animate</p>
+<p style="font-size:.75rem;color:var(--ds-muted);margin-top:4px">Hover a track to animate</p>
 {{< /demo >}}
 
 ## @keyframes animations
