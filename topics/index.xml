@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Topics on Introduction to CSS</title><link>https://introduction-to-css.mpz-00.me/topics/</link><description>Recent content in Topics on Introduction to CSS</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://introduction-to-css.mpz-00.me/topics/index.xml" rel="self" type="application/rss+xml"/><item><title>Selectors</title><link>https://introduction-to-css.mpz-00.me/topics/selectors/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/selectors/</guid><description>&lt;p>CSS selectors tell the browser &lt;em>which&lt;/em> elements a rule applies to. Everything before the &lt;code>{&lt;/code> is a selector.&lt;/p>
+&lt;h2 id="type-selectors">Type selectors&lt;/h2>
+&lt;p>Write the tag name and it matches every element of that type.&lt;/p>
+
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ p { color: steelblue; }
+ h3 { color: tomato; margin: 0 0 4px; }
+&amp;lt;/style&amp;gt;
+&amp;lt;h3&amp;gt;This is an h3&amp;lt;/h3&amp;gt;
+&amp;lt;p&amp;gt;This paragraph is selected by &amp;lt;code&amp;gt;p&amp;lt;/code&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Another paragraph, also selected.&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:140px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">p&lt;/span> { &lt;span style="color:#ff79c6">color&lt;/span>: &lt;span style="color:#ff79c6">steelblue&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">h3&lt;/span> { &lt;span style="color:#ff79c6">color&lt;/span>: &lt;span style="color:#ff79c6">tomato&lt;/span>; &lt;span style="color:#ff79c6">margin&lt;/span>: &lt;span style="color:#bd93f9">0&lt;/span> &lt;span style="color:#bd93f9">0&lt;/span> &lt;span style="color:#bd93f9">4&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">h3&lt;/span>&amp;gt;This is an h3&amp;lt;/&lt;span style="color:#ff79c6">h3&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;This paragraph is selected by &amp;lt;&lt;span style="color:#ff79c6">code&lt;/span>&amp;gt;p&amp;lt;/&lt;span style="color:#ff79c6">code&lt;/span>&amp;gt;.&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;Another paragraph, also selected.&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;h2 id="class-selectors">Class selectors&lt;/h2>
+&lt;p>&lt;code>.classname&lt;/code> matches elements with that class. An element can carry multiple classes.&lt;/p></description></item><item><title>Box Model</title><link>https://introduction-to-css.mpz-00.me/topics/box-model/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/box-model/</guid><description>&lt;p>Every element is a box with four layers, from inside out: content, padding, border, margin.&lt;/p>
+&lt;h2 id="the-four-layers">The four layers&lt;/h2>
+
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ .box {
+ width: 140px;
+ padding: 24px;
+ border: 6px solid steelblue;
+ margin: 20px auto;
+ background: #dbeafe;
+ text-align: center;
+ font-size: 0.85rem;
+ color: #1e3a5f;
+ }
+&amp;lt;/style&amp;gt;
+&amp;lt;div class=&amp;#34;box&amp;#34;&amp;gt;
+ content&amp;lt;br&amp;gt;
+ &amp;lt;small&amp;gt;(140 px wide)&amp;lt;/small&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;p style=&amp;#34;text-align:center;font-size:.8rem;color:var(--ds-muted)&amp;#34;&amp;gt;
+ &amp;#43; 24px padding on each side&amp;lt;br&amp;gt;
+ &amp;#43; 6px border on each side&amp;lt;br&amp;gt;
+ &amp;#43; 20px margin on each side
+&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:260px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">box&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">width&lt;/span>: &lt;span style="color:#bd93f9">140&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">padding&lt;/span>: &lt;span style="color:#bd93f9">24&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">border&lt;/span>: &lt;span style="color:#bd93f9">6&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span> &lt;span style="color:#ff79c6">solid&lt;/span> &lt;span style="color:#ff79c6">steelblue&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">margin&lt;/span>: &lt;span style="color:#bd93f9">20&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span> &lt;span style="color:#ff79c6">auto&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">background&lt;/span>: &lt;span style="color:#bd93f9">#dbeafe&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">text-align&lt;/span>: &lt;span style="color:#ff79c6">center&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">font-size&lt;/span>: &lt;span style="color:#bd93f9">0.85&lt;/span>&lt;span style="color:#8be9fd">rem&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">color&lt;/span>: &lt;span style="color:#bd93f9">#1e3a5f&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;box&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> content&amp;lt;&lt;span style="color:#ff79c6">br&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">small&lt;/span>&amp;gt;(140 px wide)&amp;lt;/&lt;span style="color:#ff79c6">small&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;text-align:center;font-size:.8rem;color:var(--ds-muted)&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> + 24px padding on each side&amp;lt;&lt;span style="color:#ff79c6">br&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> + 6px border on each side&amp;lt;&lt;span style="color:#ff79c6">br&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> + 20px margin on each side
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;ul>
+&lt;li>&lt;code>padding&lt;/code>: space between the content and the border (background color fills here too)&lt;/li>
+&lt;li>&lt;code>border&lt;/code>: a line around the padding and content&lt;/li>
+&lt;li>&lt;code>margin&lt;/code>: transparent space outside the border that pushes neighboring elements away&lt;/li>
+&lt;/ul>
+&lt;h2 id="box-sizing">box-sizing&lt;/h2>
+&lt;p>By default (&lt;code>content-box&lt;/code>), &lt;code>width&lt;/code> only covers the content area. Padding and border stack on top of that, making the element wider than you set. &lt;code>border-box&lt;/code> folds them in, so what you write is what you get.&lt;/p></description></item><item><title>Colors</title><link>https://introduction-to-css.mpz-00.me/topics/colors/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/colors/</guid><description>&lt;p>CSS has several color formats. They&amp;rsquo;re interchangeable, so use whichever is easiest to read.&lt;/p>
+&lt;h2 id="named-colors">Named colors&lt;/h2>
+&lt;p>CSS has 140+ named colors. Good for quick demos, but not precise enough for production.&lt;/p>
+
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ .swatches { display: flex; gap: 8px; flex-wrap: wrap; }
+ .sw { width: 60px; height: 40px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: bold; }
+&amp;lt;/style&amp;gt;
+&amp;lt;div class=&amp;#34;swatches&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;sw&amp;#34; style=&amp;#34;background:tomato;color:#fff&amp;#34;&amp;gt;tomato&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;sw&amp;#34; style=&amp;#34;background:steelblue;color:#fff&amp;#34;&amp;gt;steel blue&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;sw&amp;#34; style=&amp;#34;background:gold&amp;#34;&amp;gt;gold&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;sw&amp;#34; style=&amp;#34;background:mediumseagreen;color:#fff&amp;#34;&amp;gt;seagreen&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;sw&amp;#34; style=&amp;#34;background:orchid;color:#fff&amp;#34;&amp;gt;orchid&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;sw&amp;#34; style=&amp;#34;background:coral;color:#fff&amp;#34;&amp;gt;coral&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:100px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">swatches&lt;/span> { &lt;span style="color:#ff79c6">display&lt;/span>: &lt;span style="color:#ff79c6">flex&lt;/span>; &lt;span style="color:#ff79c6">gap&lt;/span>: &lt;span style="color:#bd93f9">8&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">flex-wrap&lt;/span>: &lt;span style="color:#ff79c6">wrap&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">sw&lt;/span> { &lt;span style="color:#ff79c6">width&lt;/span>: &lt;span style="color:#bd93f9">60&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">height&lt;/span>: &lt;span style="color:#bd93f9">40&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">border-radius&lt;/span>: &lt;span style="color:#bd93f9">6&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">display&lt;/span>: &lt;span style="color:#ff79c6">flex&lt;/span>; &lt;span style="color:#ff79c6">align-items&lt;/span>: &lt;span style="color:#ff79c6">center&lt;/span>; &lt;span style="color:#ff79c6">justify-content&lt;/span>: &lt;span style="color:#ff79c6">center&lt;/span>; &lt;span style="color:#ff79c6">font-size&lt;/span>: &lt;span style="color:#bd93f9">.65&lt;/span>&lt;span style="color:#8be9fd">rem&lt;/span>; &lt;span style="color:#ff79c6">font-weight&lt;/span>: &lt;span style="color:#ff79c6">bold&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;swatches&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;sw&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;background:tomato;color:#fff&amp;#34;&lt;/span>&amp;gt;tomato&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;sw&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;background:steelblue;color:#fff&amp;#34;&lt;/span>&amp;gt;steel blue&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;sw&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;background:gold&amp;#34;&lt;/span>&amp;gt;gold&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;sw&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;background:mediumseagreen;color:#fff&amp;#34;&lt;/span>&amp;gt;seagreen&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;sw&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;background:orchid;color:#fff&amp;#34;&lt;/span>&amp;gt;orchid&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;sw&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;background:coral;color:#fff&amp;#34;&lt;/span>&amp;gt;coral&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;h2 id="hex-colors">Hex colors&lt;/h2>
+&lt;p>Six hex digits: &lt;code>#RRGGBB&lt;/code>. Each pair is a channel from &lt;code>00&lt;/code> (none) to &lt;code>ff&lt;/code> (full). Can be shortened to three digits when both digits are the same: &lt;code>#aabbcc&lt;/code> → &lt;code>#abc&lt;/code>.&lt;/p></description></item><item><title>Typography</title><link>https://introduction-to-css.mpz-00.me/topics/typography/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/typography/</guid><description>&lt;p>Typography is the set of CSS properties that affect how text looks: font family, size, weight, and line height.&lt;/p>
+&lt;h2 id="font-family">font-family&lt;/h2>
+&lt;p>List fonts in order. The browser picks the first one it can load. End with a generic fallback (&lt;code>serif&lt;/code>, &lt;code>sans-serif&lt;/code>, or &lt;code>monospace&lt;/code>) so something always renders.&lt;/p>
+
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ .sans { font-family: system-ui, sans-serif; }
+ .serif { font-family: Georgia, &amp;#34;Times New Roman&amp;#34;, serif; }
+ .mono { font-family: &amp;#34;Consolas&amp;#34;, &amp;#34;Fira Code&amp;#34;, monospace; }
+ p { margin: 4px 0; font-size: 1.1rem; }
+&amp;lt;/style&amp;gt;
+&amp;lt;p class=&amp;#34;sans&amp;#34;&amp;gt;system-ui, sans-serif — clean and modern&amp;lt;/p&amp;gt;
+&amp;lt;p class=&amp;#34;serif&amp;#34;&amp;gt;Georgia, serif — classic editorial feel&amp;lt;/p&amp;gt;
+&amp;lt;p class=&amp;#34;mono&amp;#34;&amp;gt;Consolas, monospace — code and data&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:180px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">sans&lt;/span> { &lt;span style="color:#ff79c6">font-family&lt;/span>: system-ui, &lt;span style="color:#ff79c6">sans-serif&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">serif&lt;/span> { &lt;span style="color:#ff79c6">font-family&lt;/span>: Georgia, &lt;span style="color:#f1fa8c">&amp;#34;Times New Roman&amp;#34;&lt;/span>, &lt;span style="color:#ff79c6">serif&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">mono&lt;/span> { &lt;span style="color:#ff79c6">font-family&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;Consolas&amp;#34;&lt;/span>, &lt;span style="color:#f1fa8c">&amp;#34;Fira Code&amp;#34;&lt;/span>, &lt;span style="color:#ff79c6">monospace&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">p&lt;/span> { &lt;span style="color:#ff79c6">margin&lt;/span>: &lt;span style="color:#bd93f9">4&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span> &lt;span style="color:#bd93f9">0&lt;/span>; &lt;span style="color:#ff79c6">font-size&lt;/span>: &lt;span style="color:#bd93f9">1.1&lt;/span>&lt;span style="color:#8be9fd">rem&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;sans&amp;#34;&lt;/span>&amp;gt;system-ui, sans-serif — clean and modern&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;serif&amp;#34;&lt;/span>&amp;gt;Georgia, serif — classic editorial feel&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;mono&amp;#34;&lt;/span>&amp;gt;Consolas, monospace — code and data&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;h2 id="font-size">font-size&lt;/h2>
+&lt;p>The most useful units:&lt;/p></description></item><item><title>Flexbox</title><link>https://introduction-to-css.mpz-00.me/topics/flexbox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/flexbox/</guid><description>&lt;p>Flexbox is a layout model for arranging items in a single row or column. Add &lt;code>display: flex&lt;/code> to a container and its direct children become &lt;em>flex items&lt;/em>.&lt;/p>
+&lt;h2 id="the-basics">The basics&lt;/h2>
+
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ .row {
+ display: flex;
+ gap: 8px;
+ background: var(--ds-surface-alt);
+ padding: 12px;
+ border-radius: 6px;
+ }
+ .item {
+ background: #7c3aed;
+ color: #fff;
+ padding: 10px 18px;
+ border-radius: 4px;
+ font-weight: bold;
+ }
+&amp;lt;/style&amp;gt;
+&amp;lt;div class=&amp;#34;row&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;item&amp;#34;&amp;gt;A&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;item&amp;#34;&amp;gt;B&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;item&amp;#34;&amp;gt;C&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:100px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">row&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">display&lt;/span>: &lt;span style="color:#ff79c6">flex&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">gap&lt;/span>: &lt;span style="color:#bd93f9">8&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">background&lt;/span>: &lt;span style="color:#50fa7b">var&lt;/span>(&lt;span style="color:#ff79c6">--&lt;/span>ds&lt;span style="color:#ff79c6">-&lt;/span>surface&lt;span style="color:#ff79c6">-&lt;/span>alt);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">padding&lt;/span>: &lt;span style="color:#bd93f9">12&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">border-radius&lt;/span>: &lt;span style="color:#bd93f9">6&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">item&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">background&lt;/span>: &lt;span style="color:#bd93f9">#7c3aed&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">color&lt;/span>: &lt;span style="color:#bd93f9">#fff&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">padding&lt;/span>: &lt;span style="color:#bd93f9">10&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span> &lt;span style="color:#bd93f9">18&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">border-radius&lt;/span>: &lt;span style="color:#bd93f9">4&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">font-weight&lt;/span>: &lt;span style="color:#ff79c6">bold&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;row&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;item&amp;#34;&lt;/span>&amp;gt;A&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;item&amp;#34;&lt;/span>&amp;gt;B&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;item&amp;#34;&lt;/span>&amp;gt;C&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;h2 id="flex-direction">flex-direction&lt;/h2>
+&lt;p>Default is &lt;code>row&lt;/code>. Set it to &lt;code>column&lt;/code> to stack items vertically.&lt;/p></description></item><item><title>Grid</title><link>https://introduction-to-css.mpz-00.me/topics/grid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/grid/</guid><description>&lt;p>CSS Grid works in two dimensions. Flexbox handles a single row or column; Grid handles both at once.&lt;/p>
+&lt;h2 id="defining-a-grid">Defining a grid&lt;/h2>
+&lt;p>&lt;code>display: grid&lt;/code> plus &lt;code>grid-template-columns&lt;/code> creates a grid. &lt;code>gap&lt;/code> adds gutter space.&lt;/p>
+
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ .grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr; /* three equal columns */
+ gap: 8px;
+ }
+ .cell {
+ background: #7c3aed;
+ color: #fff;
+ padding: 16px;
+ border-radius: 6px;
+ text-align: center;
+ font-weight: bold;
+ }
+&amp;lt;/style&amp;gt;
+&amp;lt;div class=&amp;#34;grid&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;cell&amp;#34;&amp;gt;1&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;cell&amp;#34;&amp;gt;2&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;cell&amp;#34;&amp;gt;3&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;cell&amp;#34;&amp;gt;4&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;cell&amp;#34;&amp;gt;5&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;cell&amp;#34;&amp;gt;6&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:160px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">grid&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">display&lt;/span>: &lt;span style="color:#ff79c6">grid&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">grid-template-columns&lt;/span>: &lt;span style="color:#bd93f9">1&lt;/span>fr &lt;span style="color:#bd93f9">1&lt;/span>fr &lt;span style="color:#bd93f9">1&lt;/span>fr; &lt;span style="color:#6272a4">/* three equal columns */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">gap&lt;/span>: &lt;span style="color:#bd93f9">8&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">cell&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">background&lt;/span>: &lt;span style="color:#bd93f9">#7c3aed&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">color&lt;/span>: &lt;span style="color:#bd93f9">#fff&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">padding&lt;/span>: &lt;span style="color:#bd93f9">16&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">border-radius&lt;/span>: &lt;span style="color:#bd93f9">6&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">text-align&lt;/span>: &lt;span style="color:#ff79c6">center&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">font-weight&lt;/span>: &lt;span style="color:#ff79c6">bold&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;grid&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;cell&amp;#34;&lt;/span>&amp;gt;1&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;cell&amp;#34;&lt;/span>&amp;gt;2&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;cell&amp;#34;&lt;/span>&amp;gt;3&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;cell&amp;#34;&lt;/span>&amp;gt;4&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;cell&amp;#34;&lt;/span>&amp;gt;5&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;cell&amp;#34;&lt;/span>&amp;gt;6&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;p>The &lt;code>fr&lt;/code> unit means &amp;ldquo;fraction of available space&amp;rdquo;. &lt;code>1fr 1fr 1fr&lt;/code> is three equal columns. &lt;code>2fr 1fr&lt;/code> gives the first column twice the space.&lt;/p></description></item><item><title>Animations</title><link>https://introduction-to-css.mpz-00.me/topics/animations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/animations/</guid><description>&lt;p>CSS can animate properties without JavaScript. Two tools: &lt;code>transition&lt;/code> for state changes, &lt;code>@keyframes&lt;/code> for sequences that run on their own.&lt;/p>
+&lt;h2 id="transitions">Transitions&lt;/h2>
+&lt;p>&lt;code>transition&lt;/code> interpolates a property when it changes, usually triggered by &lt;code>:hover&lt;/code> or &lt;code>:focus&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">transition&lt;/span>&lt;span style="color:#ff79c6">:&lt;/span> &lt;span style="color:#ff79c6">property&lt;/span> &lt;span style="color:#ff79c6">duration&lt;/span> &lt;span style="color:#ff79c6">timing-function&lt;/span> &lt;span style="color:#ff79c6">delay&lt;/span>&lt;span style="color:#ff79c6">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ .btn {
+ display: inline-block;
+ padding: 12px 28px;
+ background: #7c3aed;
+ color: #fff;
+ border-radius: 8px;
+ font-weight: bold;
+ cursor: pointer;
+ transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+ }
+ .btn:hover {
+ background: #5b21b6;
+ transform: translateY(-3px);
+ box-shadow: 0 8px 20px rgba(124,58,237,0.4);
+ }
+&amp;lt;/style&amp;gt;
+&amp;lt;div class=&amp;#34;btn&amp;#34;&amp;gt;Hover me&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:130px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">btn&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">display&lt;/span>: &lt;span style="color:#ff79c6">inline-block&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">padding&lt;/span>: &lt;span style="color:#bd93f9">12&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span> &lt;span style="color:#bd93f9">28&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">background&lt;/span>: &lt;span style="color:#bd93f9">#7c3aed&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">color&lt;/span>: &lt;span style="color:#bd93f9">#fff&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">border-radius&lt;/span>: &lt;span style="color:#bd93f9">8&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">font-weight&lt;/span>: &lt;span style="color:#ff79c6">bold&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">cursor&lt;/span>: &lt;span style="color:#ff79c6">pointer&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">transition&lt;/span>: &lt;span style="color:#ff79c6">background&lt;/span> &lt;span style="color:#bd93f9">0.25&lt;/span>&lt;span style="color:#8be9fd">s&lt;/span> &lt;span style="color:#ff79c6">ease&lt;/span>, &lt;span style="color:#ff79c6">transform&lt;/span> &lt;span style="color:#bd93f9">0.2&lt;/span>&lt;span style="color:#8be9fd">s&lt;/span> &lt;span style="color:#ff79c6">ease&lt;/span>, &lt;span style="color:#ff79c6">box-shadow&lt;/span> &lt;span style="color:#bd93f9">0.25&lt;/span>&lt;span style="color:#8be9fd">s&lt;/span> &lt;span style="color:#ff79c6">ease&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">btn&lt;/span>:hover {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">background&lt;/span>: &lt;span style="color:#bd93f9">#5b21b6&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">transform&lt;/span>: &lt;span style="color:#8be9fd;font-style:italic">translateY&lt;/span>(&lt;span style="color:#bd93f9">-3&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">box-shadow&lt;/span>: &lt;span style="color:#bd93f9">0&lt;/span> &lt;span style="color:#bd93f9">8&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span> &lt;span style="color:#bd93f9">20&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">rgba&lt;/span>(&lt;span style="color:#bd93f9">124&lt;/span>,&lt;span style="color:#bd93f9">58&lt;/span>,&lt;span style="color:#bd93f9">237&lt;/span>,&lt;span style="color:#bd93f9">0.4&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;btn&amp;#34;&lt;/span>&amp;gt;Hover me&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;h3 id="timing-functions">Timing functions&lt;/h3>
+&lt;p>Each value produces a different feel. Hover the tracks to compare.&lt;/p></description></item><item><title>Positioning</title><link>https://introduction-to-css.mpz-00.me/topics/positioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://introduction-to-css.mpz-00.me/topics/positioning/</guid><description>&lt;p>&lt;code>position&lt;/code> breaks elements out of normal flow so you can place them exactly where you want.&lt;/p>
+&lt;h2 id="static-default">static (default)&lt;/h2>
+&lt;p>The default. Elements flow in document order. &lt;code>top&lt;/code>, &lt;code>left&lt;/code>, and the rest have no effect here.&lt;/p>
+&lt;h2 id="relative">relative&lt;/h2>
+&lt;p>Stays in the flow but can be nudged with &lt;code>top&lt;/code>/&lt;code>right&lt;/code>/&lt;code>bottom&lt;/code>/&lt;code>left&lt;/code>, relative to where it would normally sit. Its original space stays reserved.&lt;/p>
+
+
+
+&lt;div class="demo-block">
+ &lt;div class="demo-preview">
+ &lt;iframe
+ srcdoc="&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#39;utf-8&amp;#39;&amp;gt;&amp;lt;style&amp;gt;:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;style&amp;gt;
+ .row { display:flex; gap:8px; align-items:flex-start; padding:16px; background:var(--ds-surface); border-radius:6px; }
+ .box { width:70px; height:50px; background:#7c3aed; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:4px; font-weight:bold; }
+ .moved { position: relative; top: 16px; left: 12px; background: #a78bfa; }
+&amp;lt;/style&amp;gt;
+&amp;lt;div class=&amp;#34;row&amp;#34;&amp;gt;
+ &amp;lt;div class=&amp;#34;box&amp;#34;&amp;gt;1&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;box moved&amp;#34;&amp;gt;2&amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;#34;box&amp;#34;&amp;gt;3&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;p style=&amp;#34;font-size:.8rem;color:var(--ds-muted);margin-top:8px&amp;#34;&amp;gt;Box 2 is nudged, its original space stays reserved, so Box 3 is not displaced.&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;"
+ frameborder="0"
+ class="demo-iframe"
+ style="height:160px"
+ >&lt;/iframe>
+ &lt;/div>
+ &lt;details class="demo-source">
+ &lt;summary>View code&lt;/summary>
+ &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">row&lt;/span> { &lt;span style="color:#ff79c6">display&lt;/span>:&lt;span style="color:#ff79c6">flex&lt;/span>; &lt;span style="color:#ff79c6">gap&lt;/span>:&lt;span style="color:#bd93f9">8&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">align-items&lt;/span>:&lt;span style="color:#ff79c6">flex-start&lt;/span>; &lt;span style="color:#ff79c6">padding&lt;/span>:&lt;span style="color:#bd93f9">16&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">background&lt;/span>:&lt;span style="color:#50fa7b">var&lt;/span>(&lt;span style="color:#ff79c6">--&lt;/span>ds&lt;span style="color:#ff79c6">-&lt;/span>surface); &lt;span style="color:#ff79c6">border-radius&lt;/span>:&lt;span style="color:#bd93f9">6&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">box&lt;/span> { &lt;span style="color:#ff79c6">width&lt;/span>:&lt;span style="color:#bd93f9">70&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">height&lt;/span>:&lt;span style="color:#bd93f9">50&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">background&lt;/span>:&lt;span style="color:#bd93f9">#7c3aed&lt;/span>; &lt;span style="color:#ff79c6">color&lt;/span>:&lt;span style="color:#bd93f9">#fff&lt;/span>; &lt;span style="color:#ff79c6">display&lt;/span>:&lt;span style="color:#ff79c6">flex&lt;/span>; &lt;span style="color:#ff79c6">align-items&lt;/span>:&lt;span style="color:#ff79c6">center&lt;/span>; &lt;span style="color:#ff79c6">justify-content&lt;/span>:&lt;span style="color:#ff79c6">center&lt;/span>; &lt;span style="color:#ff79c6">border-radius&lt;/span>:&lt;span style="color:#bd93f9">4&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">font-weight&lt;/span>:&lt;span style="color:#ff79c6">bold&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .&lt;span style="color:#50fa7b">moved&lt;/span> { &lt;span style="color:#ff79c6">position&lt;/span>: &lt;span style="color:#ff79c6">relative&lt;/span>; &lt;span style="color:#ff79c6">top&lt;/span>: &lt;span style="color:#bd93f9">16&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">left&lt;/span>: &lt;span style="color:#bd93f9">12&lt;/span>&lt;span style="color:#8be9fd">px&lt;/span>; &lt;span style="color:#ff79c6">background&lt;/span>: &lt;span style="color:#bd93f9">#a78bfa&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;row&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;box&amp;#34;&lt;/span>&amp;gt;1&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;box moved&amp;#34;&lt;/span>&amp;gt;2&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">div&lt;/span> &lt;span style="color:#50fa7b">class&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;box&amp;#34;&lt;/span>&amp;gt;3&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;font-size:.8rem;color:var(--ds-muted);margin-top:8px&amp;#34;&lt;/span>&amp;gt;Box 2 is nudged, its original space stays reserved, so Box 3 is not displaced.&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/details>
+&lt;/div>
+
+&lt;h2 id="absolute">absolute&lt;/h2>
+&lt;p>Pulled out of the flow entirely. Positions against the nearest ancestor with a non-&lt;code>static&lt;/code> position. If there isn&amp;rsquo;t one, it falls back to the page root.&lt;/p></description></item></channel></rss>

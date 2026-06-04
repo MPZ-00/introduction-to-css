@@ -1,0 +1,120 @@
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Positioning — Introduction to CSS</title><link rel=stylesheet href=/css/style.css></head><body><header class=site-header><a class=site-title href=/>Introduction to CSS</a>
+<span class=site-tagline>hands-on reference</span>
+<button class=theme-toggle id=themeToggle aria-label="Toggle dark mode">
+<svg class="icon icon-sun" width="1.1em" height="1.1em" aria-hidden="true"><use href="/icons.svg#icon-sun"/></svg>
+<svg class="icon icon-moon" width="1.1em" height="1.1em" aria-hidden="true"><use href="/icons.svg#icon-moon"/></svg></button></header><div class=layout><nav class=sidebar><p class=nav-label>Topics</p><ul><li><a href=/>Home</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/selectors/>Selectors</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/box-model/>Box Model</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/colors/>Colors</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/typography/>Typography</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/flexbox/>Flexbox</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/grid/>Grid</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/animations/>Animations</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/positioning/ class=active>Positioning</a></li></ul></nav><main class=content><article class=topic><h1>Positioning</h1><p class=lead>static, relative, absolute, fixed, sticky</p><div class=topic-body><p><code>position</code> breaks elements out of normal flow so you can place them exactly where you want.</p><h2 id=static-default>static (default)</h2><p>The default. Elements flow in document order. <code>top</code>, <code>left</code>, and the rest have no effect here.</p><h2 id=relative>relative</h2><p>Stays in the flow but can be nudged with <code>top</code>/<code>right</code>/<code>bottom</code>/<code>left</code>, relative to where it would normally sit. Its original space stays reserved.</p><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .row { display:flex; gap:8px; align-items:flex-start; padding:16px; background:var(--ds-surface); border-radius:6px; }
+  .box { width:70px; height:50px; background:#7c3aed; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:4px; font-weight:bold; }
+  .moved { position: relative; top: 16px; left: 12px; background: #a78bfa; }
+</style>
+<div class="row">
+  <div class="box">1</div>
+  <div class="box moved">2</div>
+  <div class="box">3</div>
+</div>
+<p style="font-size:.8rem;color:var(--ds-muted);margin-top:8px">Box 2 is nudged, its original space stays reserved, so Box 3 is not displaced.</p></body></html>' frameborder=0 class=demo-iframe style=height:160px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>row</span> { <span style=color:#ff79c6>display</span>:<span style=color:#ff79c6>flex</span>; <span style=color:#ff79c6>gap</span>:<span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>align-items</span>:<span style=color:#ff79c6>flex-start</span>; <span style=color:#ff79c6>padding</span>:<span style=color:#bd93f9>16</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>background</span>:<span style=color:#50fa7b>var</span>(<span style=color:#ff79c6>--</span>ds<span style=color:#ff79c6>-</span>surface); <span style=color:#ff79c6>border-radius</span>:<span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>box</span> { <span style=color:#ff79c6>width</span>:<span style=color:#bd93f9>70</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>height</span>:<span style=color:#bd93f9>50</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#7c3aed</span>; <span style=color:#ff79c6>color</span>:<span style=color:#bd93f9>#fff</span>; <span style=color:#ff79c6>display</span>:<span style=color:#ff79c6>flex</span>; <span style=color:#ff79c6>align-items</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>justify-content</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>border-radius</span>:<span style=color:#bd93f9>4</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>font-weight</span>:<span style=color:#ff79c6>bold</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>moved</span> { <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>relative</span>; <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>16</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>left</span>: <span style=color:#bd93f9>12</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#a78bfa</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;row&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;box&#34;</span>&gt;1&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;box moved&#34;</span>&gt;2&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;box&#34;</span>&gt;3&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>p</span> <span style=color:#50fa7b>style</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;font-size:.8rem;color:var(--ds-muted);margin-top:8px&#34;</span>&gt;Box 2 is nudged, its original space stays reserved, so Box 3 is not displaced.&lt;/<span style=color:#ff79c6>p</span>&gt;</span></span></code></pre></div></details></div><h2 id=absolute>absolute</h2><p>Pulled out of the flow entirely. Positions against the nearest ancestor with a non-<code>static</code> position. If there isn&rsquo;t one, it falls back to the page root.</p><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .parent {
+    position: relative;
+    width: 260px; height: 120px;
+    background: #ede9fe;
+    border: 2px solid #7c3aed;
+    border-radius: 6px;
+  }
+  .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: tomato;
+    color: #fff;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: .85rem;
+  }
+  .label { padding: 14px; font-weight: 600; color: #3b0764; font-size: .9rem; }
+</style>
+<div class="parent">
+  <div class="label">position: relative</div>
+  <div class="badge">3</div>
+</div>
+<p style="font-size:.8rem;color:var(--ds-muted);margin-top:8px">The badge sits at top-right of the parent because the parent is <code>position: relative</code>.</p></body></html>' frameborder=0 class=demo-iframe style=height:180px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>parent</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>relative</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>width</span>: <span style=color:#bd93f9>260</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>120</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#ede9fe</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border</span>: <span style=color:#bd93f9>2</span><span style=color:#8be9fd>px</span> <span style=color:#ff79c6>solid</span> <span style=color:#bd93f9>#7c3aed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>badge</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>absolute</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>-10</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>right</span>: <span style=color:#bd93f9>-10</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#ff79c6>tomato</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>color</span>: <span style=color:#bd93f9>#fff</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>width</span>: <span style=color:#bd93f9>28</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>28</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>50</span><span style=color:#8be9fd>%</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>flex</span>; <span style=color:#ff79c6>align-items</span>: <span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>justify-content</span>: <span style=color:#ff79c6>center</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>font-weight</span>: <span style=color:#ff79c6>bold</span>; <span style=color:#ff79c6>font-size</span>: <span style=color:#bd93f9>.85</span><span style=color:#8be9fd>rem</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>label</span> { <span style=color:#ff79c6>padding</span>: <span style=color:#bd93f9>14</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>font-weight</span>: <span style=color:#bd93f9>600</span>; <span style=color:#ff79c6>color</span>: <span style=color:#bd93f9>#3b0764</span>; <span style=color:#ff79c6>font-size</span>: <span style=color:#bd93f9>.9</span><span style=color:#8be9fd>rem</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;parent&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;label&#34;</span>&gt;position: relative&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;badge&#34;</span>&gt;3&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>p</span> <span style=color:#50fa7b>style</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;font-size:.8rem;color:var(--ds-muted);margin-top:8px&#34;</span>&gt;The badge sits at top-right of the parent because the parent is &lt;<span style=color:#ff79c6>code</span>&gt;position: relative&lt;/<span style=color:#ff79c6>code</span>&gt;.&lt;/<span style=color:#ff79c6>p</span>&gt;</span></span></code></pre></div></details></div><h2 id=fixed>fixed</h2><p>Like <code>absolute</code>, but relative to the viewport. Stays put when the page scrolls. Good for fixed headers and floating buttons.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#50fa7b>sticky-header</span> {
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>fixed</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>left</span>: <span style=color:#bd93f9>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>right</span>: <span style=color:#bd93f9>0</span>;       <span style=color:#6272a4>/* stretch full width */</span>
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>z-index</span>: <span style=color:#bd93f9>100</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=sticky>sticky</h2><p>Sits in the flow like <code>relative</code>, but locks to a scroll position once you scroll past it.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#ff79c6>th</span> {
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>sticky</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>0</span>;         <span style=color:#6272a4>/* stick to top of scroll container */</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=z-index>z-index</h2><p>Higher <code>z-index</code> = closer to the viewer. Only works on positioned elements (anything but <code>static</code>).</p><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .stack { position: relative; height: 100px; }
+  .layer {
+    position: absolute;
+    width: 100px; height: 70px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; color: #fff;
+  }
+  .l1 { background: #7c3aed; top: 10px; left: 10px; z-index: 1; }
+  .l2 { background: #a78bfa; top: 30px; left: 50px; z-index: 2; }
+  .l3 { background: #5b21b6; top: 20px; left: 100px; z-index: 3; }
+</style>
+<div class="stack">
+  <div class="layer l1">z:1</div>
+  <div class="layer l2">z:2</div>
+  <div class="layer l3">z:3</div>
+</div></body></html>' frameborder=0 class=demo-iframe style=height:160px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>stack</span> { <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>relative</span>; <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>100</span><span style=color:#8be9fd>px</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>layer</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>absolute</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>width</span>: <span style=color:#bd93f9>100</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>70</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>flex</span>; <span style=color:#ff79c6>align-items</span>: <span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>justify-content</span>: <span style=color:#ff79c6>center</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>font-weight</span>: <span style=color:#ff79c6>bold</span>; <span style=color:#ff79c6>color</span>: <span style=color:#bd93f9>#fff</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>l1</span> { <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#7c3aed</span>; <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>10</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>left</span>: <span style=color:#bd93f9>10</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>z-index</span>: <span style=color:#bd93f9>1</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>l2</span> { <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#a78bfa</span>; <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>30</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>left</span>: <span style=color:#bd93f9>50</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>z-index</span>: <span style=color:#bd93f9>2</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>l3</span> { <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#5b21b6</span>; <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>20</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>left</span>: <span style=color:#bd93f9>100</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>z-index</span>: <span style=color:#bd93f9>3</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;stack&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;layer l1&#34;</span>&gt;z:1&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;layer l2&#34;</span>&gt;z:2&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;layer l3&#34;</span>&gt;z:3&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h2 id=quick-reference>Quick reference</h2><table><thead><tr><th>Value</th><th>In flow?</th><th>Positioned relative to</th></tr></thead><tbody><tr><td><code>static</code></td><td>yes</td><td>—</td></tr><tr><td><code>relative</code></td><td>yes</td><td>itself</td></tr><tr><td><code>absolute</code></td><td>no</td><td>nearest positioned ancestor</td></tr><tr><td><code>fixed</code></td><td>no</td><td>viewport</td></tr><tr><td><code>sticky</code></td><td>yes → no</td><td>scroll container</td></tr></tbody></table></div></article></main></div><footer class=site-footer>© 2026 <a href=https://github.com/MPZ-00>MPZ-00</a> · Licensed under AGPL-3.0</footer><script>(function(){const e=document.documentElement,n=document.getElementById("themeToggle"),s={dark:{bg:"#1a1730",fg:"#e8e4ff"},light:{bg:"#ffffff",fg:"#222222"}},o=":root{--ds-bg:#1a1730;--ds-surface:#2d2a45;--ds-surface-alt:#2a1f4a;--ds-border:#2d2a45;--ds-muted:#c0b8e8;--ds-text:#e8e4ff}";function i(e){const t=s[e];document.querySelectorAll(".demo-iframe").forEach(function(n){function s(){try{const i=n.contentDocument||n.contentWindow.document;if(!i||!i.body)return;i.body.style.background=t.bg,i.body.style.color=t.fg;var s=i.getElementById("__dm");s||(s=i.createElement("style"),s.id="__dm",i.head.appendChild(s)),s.textContent=e==="dark"?o:""}catch{}}n.addEventListener("load",s,{once:!0}),n.contentDocument&&n.contentDocument.readyState==="complete"&&(n.removeEventListener("load",s),s())})}function t(t){e.setAttribute("data-theme",t),localStorage.setItem("theme",t),i(t)}const a=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");t(a),n.addEventListener("click",function(){t(e.getAttribute("data-theme")==="dark"?"light":"dark")})})()</script></body></html>

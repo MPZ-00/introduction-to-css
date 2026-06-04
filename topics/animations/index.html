@@ -1,0 +1,181 @@
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Animations — Introduction to CSS</title><link rel=stylesheet href=/css/style.css></head><body><header class=site-header><a class=site-title href=/>Introduction to CSS</a>
+<span class=site-tagline>hands-on reference</span>
+<button class=theme-toggle id=themeToggle aria-label="Toggle dark mode">
+<svg class="icon icon-sun" width="1.1em" height="1.1em" aria-hidden="true"><use href="/icons.svg#icon-sun"/></svg>
+<svg class="icon icon-moon" width="1.1em" height="1.1em" aria-hidden="true"><use href="/icons.svg#icon-moon"/></svg></button></header><div class=layout><nav class=sidebar><p class=nav-label>Topics</p><ul><li><a href=/>Home</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/selectors/>Selectors</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/box-model/>Box Model</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/colors/>Colors</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/typography/>Typography</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/flexbox/>Flexbox</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/grid/>Grid</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/animations/ class=active>Animations</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/positioning/>Positioning</a></li></ul></nav><main class=content><article class=topic><h1>Animations</h1><p class=lead>Transitions and keyframe animations</p><div class=topic-body><p>CSS can animate properties without JavaScript. Two tools: <code>transition</code> for state changes, <code>@keyframes</code> for sequences that run on their own.</p><h2 id=transitions>Transitions</h2><p><code>transition</code> interpolates a property when it changes, usually triggered by <code>:hover</code> or <code>:focus</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#ff79c6>transition</span><span style=color:#ff79c6>:</span> <span style=color:#ff79c6>property</span> <span style=color:#ff79c6>duration</span> <span style=color:#ff79c6>timing-function</span> <span style=color:#ff79c6>delay</span><span style=color:#ff79c6>;</span>
+</span></span></code></pre></div><div class=demo-block><div class=demo-preview><iframe srcdoc="<!doctype html><html><head><meta charset='utf-8'><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #7c3aed;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  }
+  .btn:hover {
+    background: #5b21b6;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(124,58,237,0.4);
+  }
+</style>
+<div class=&#34;btn&#34;>Hover me</div></body></html>" frameborder=0 class=demo-iframe style=height:130px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>btn</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>inline-block</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>padding</span>: <span style=color:#bd93f9>12</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>28</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#7c3aed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>color</span>: <span style=color:#bd93f9>#fff</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>font-weight</span>: <span style=color:#ff79c6>bold</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>cursor</span>: <span style=color:#ff79c6>pointer</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>transition</span>: <span style=color:#ff79c6>background</span> <span style=color:#bd93f9>0.25</span><span style=color:#8be9fd>s</span> <span style=color:#ff79c6>ease</span>, <span style=color:#ff79c6>transform</span> <span style=color:#bd93f9>0.2</span><span style=color:#8be9fd>s</span> <span style=color:#ff79c6>ease</span>, <span style=color:#ff79c6>box-shadow</span> <span style=color:#bd93f9>0.25</span><span style=color:#8be9fd>s</span> <span style=color:#ff79c6>ease</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>btn</span>:hover {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#5b21b6</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>transform</span>: <span style=color:#8be9fd;font-style:italic>translateY</span>(<span style=color:#bd93f9>-3</span><span style=color:#8be9fd>px</span>);
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>box-shadow</span>: <span style=color:#bd93f9>0</span> <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>20</span><span style=color:#8be9fd>px</span> <span style=color:#8be9fd;font-style:italic>rgba</span>(<span style=color:#bd93f9>124</span>,<span style=color:#bd93f9>58</span>,<span style=color:#bd93f9>237</span>,<span style=color:#bd93f9>0.4</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;btn&#34;</span>&gt;Hover me&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h3 id=timing-functions>Timing functions</h3><p>Each value produces a different feel. Hover the tracks to compare.</p><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .bar { height: 36px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .track { flex: 1; height: 10px; background: var(--ds-surface); border-radius: 99px; position: relative; overflow: hidden; }
+  .dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #7c3aed; position: absolute; top: -9px; left: 0;
+    transition-duration: 1.5s; transition-property: left;
+  }
+  .track:hover .dot { left: calc(100% - 28px); }
+  .ease      { transition-timing-function: ease; }
+  .linear    { transition-timing-function: linear; }
+  .ease-in   { transition-timing-function: ease-in; }
+  .ease-out  { transition-timing-function: ease-out; }
+  label { font-size: .8rem; color: var(--ds-muted); width: 90px; text-align: right; }
+</style>
+<div class="bar"><label>ease</label><div class="track"><div class="dot ease"></div></div></div>
+<div class="bar"><label>linear</label><div class="track"><div class="dot linear"></div></div></div>
+<div class="bar"><label>ease-in</label><div class="track"><div class="dot ease-in"></div></div></div>
+<div class="bar"><label>ease-out</label><div class="track"><div class="dot ease-out"></div></div></div>
+<p style="font-size:.75rem;color:var(--ds-muted);margin-top:4px">Hover a track to animate</p></body></html>' frameborder=0 class=demo-iframe style=height:220px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>bar</span> { <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>36</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>margin-bottom</span>: <span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>flex</span>; <span style=color:#ff79c6>align-items</span>: <span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>gap</span>: <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>track</span> { <span style=color:#ff79c6>flex</span>: <span style=color:#bd93f9>1</span>; <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>10</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>background</span>: <span style=color:#50fa7b>var</span>(<span style=color:#ff79c6>--</span>ds<span style=color:#ff79c6>-</span>surface); <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>99</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>relative</span>; <span style=color:#ff79c6>overflow</span>: <span style=color:#ff79c6>hidden</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>dot</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>width</span>: <span style=color:#bd93f9>28</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>28</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>50</span><span style=color:#8be9fd>%</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#7c3aed</span>; <span style=color:#ff79c6>position</span>: <span style=color:#ff79c6>absolute</span>; <span style=color:#ff79c6>top</span>: <span style=color:#bd93f9>-9</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>left</span>: <span style=color:#bd93f9>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>transition-duration</span>: <span style=color:#bd93f9>1.5</span><span style=color:#8be9fd>s</span>; <span style=color:#ff79c6>transition-property</span>: <span style=color:#ff79c6>left</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>track</span>:hover .<span style=color:#50fa7b>dot</span> { <span style=color:#ff79c6>left</span>: <span style=color:#8be9fd;font-style:italic>calc</span>(<span style=color:#bd93f9>100</span><span style=color:#8be9fd>%</span> <span style=color:#ff79c6>-</span> <span style=color:#bd93f9>28</span><span style=color:#8be9fd>px</span>); }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>ease</span>      { <span style=color:#ff79c6>transition-timing-function</span>: <span style=color:#ff79c6>ease</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>linear</span>    { <span style=color:#ff79c6>transition-timing-function</span>: <span style=color:#ff79c6>linear</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>ease-in</span>   { <span style=color:#ff79c6>transition-timing-function</span>: <span style=color:#ff79c6>ease-in</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>ease-out</span>  { <span style=color:#ff79c6>transition-timing-function</span>: <span style=color:#ff79c6>ease-out</span>; }
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>label</span> { <span style=color:#ff79c6>font-size</span>: <span style=color:#bd93f9>.8</span><span style=color:#8be9fd>rem</span>; <span style=color:#ff79c6>color</span>: <span style=color:#50fa7b>var</span>(<span style=color:#ff79c6>--</span>ds<span style=color:#ff79c6>-</span>muted); <span style=color:#ff79c6>width</span>: <span style=color:#bd93f9>90</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>text-align</span>: <span style=color:#ff79c6>right</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;bar&#34;</span>&gt;&lt;<span style=color:#ff79c6>label</span>&gt;ease&lt;/<span style=color:#ff79c6>label</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;track&#34;</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;dot ease&#34;</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;bar&#34;</span>&gt;&lt;<span style=color:#ff79c6>label</span>&gt;linear&lt;/<span style=color:#ff79c6>label</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;track&#34;</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;dot linear&#34;</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;bar&#34;</span>&gt;&lt;<span style=color:#ff79c6>label</span>&gt;ease-in&lt;/<span style=color:#ff79c6>label</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;track&#34;</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;dot ease-in&#34;</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;bar&#34;</span>&gt;&lt;<span style=color:#ff79c6>label</span>&gt;ease-out&lt;/<span style=color:#ff79c6>label</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;track&#34;</span>&gt;&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;dot ease-out&#34;</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>p</span> <span style=color:#50fa7b>style</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;font-size:.75rem;color:var(--ds-muted);margin-top:4px&#34;</span>&gt;Hover a track to animate&lt;/<span style=color:#ff79c6>p</span>&gt;</span></span></code></pre></div></details></div><h2 id=keyframes-animations>@keyframes animations</h2><p>Name a sequence of states, then attach it with the <code>animation</code> shorthand.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span>@<span style=color:#ff79c6>keyframes</span> <span style=color:#ff79c6>name</span> {
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>from</span> { <span style=color:#6272a4>/* start */</span> }
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>to</span>   { <span style=color:#6272a4>/* end */</span>   }
+</span></span><span style=display:flex><span>  <span style=color:#6272a4>/* or use 0%, 50%, 100% for multi-step */</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#50fa7b>element</span> {
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>animation</span>: name duration timing iteration-count;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=fade--slide-in>Fade + slide in</h3><div class=demo-block><div class=demo-preview><iframe srcdoc="<!doctype html><html><head><meta charset='utf-8'><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card {
+    background: #ede9fe;
+    border-left: 4px solid #7c3aed;
+    padding: 14px 18px;
+    border-radius: 6px;
+    color: #3b0764;
+    font-weight: 600;
+    animation: fadeSlide 0.7s ease both;
+  }
+</style>
+<div class=&#34;card&#34;>This card fades and slides in on load.</div></body></html>" frameborder=0 class=demo-iframe style=height:120px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  @<span style=color:#ff79c6>keyframes</span> <span style=color:#ff79c6>fadeSlide</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>from</span> { <span style=color:#ff79c6>opacity</span>: <span style=color:#bd93f9>0</span>; <span style=color:#ff79c6>transform</span>: <span style=color:#8be9fd;font-style:italic>translateY</span>(<span style=color:#bd93f9>16</span><span style=color:#8be9fd>px</span>); }
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>to</span>   { <span style=color:#ff79c6>opacity</span>: <span style=color:#bd93f9>1</span>; <span style=color:#ff79c6>transform</span>: <span style=color:#8be9fd;font-style:italic>translateY</span>(<span style=color:#bd93f9>0</span>); }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>card</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#ede9fe</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-left</span>: <span style=color:#bd93f9>4</span><span style=color:#8be9fd>px</span> <span style=color:#ff79c6>solid</span> <span style=color:#bd93f9>#7c3aed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>padding</span>: <span style=color:#bd93f9>14</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>18</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>color</span>: <span style=color:#bd93f9>#3b0764</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>font-weight</span>: <span style=color:#bd93f9>600</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>animation</span>: fadeSlide <span style=color:#bd93f9>0.7</span><span style=color:#8be9fd>s</span> <span style=color:#ff79c6>ease</span> <span style=color:#ff79c6>both</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;card&#34;</span>&gt;This card fades and slides in on load.&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h3 id=spin>Spin</h3><div class=demo-block><div class=demo-preview><iframe srcdoc="<!doctype html><html><head><meta charset='utf-8'><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 4px solid #ede9fe;
+    border-top-color: #7c3aed;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 16px auto;
+  }
+</style>
+<div class=&#34;spinner&#34;></div></body></html>" frameborder=0 class=demo-iframe style=height:120px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  @<span style=color:#ff79c6>keyframes</span> <span style=color:#ff79c6>spin</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>to</span> { <span style=color:#ff79c6>transform</span>: <span style=color:#8be9fd;font-style:italic>rotate</span>(<span style=color:#bd93f9>360</span><span style=color:#8be9fd>deg</span>); }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>spinner</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>width</span>: <span style=color:#bd93f9>40</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>40</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border</span>: <span style=color:#bd93f9>4</span><span style=color:#8be9fd>px</span> <span style=color:#ff79c6>solid</span> <span style=color:#bd93f9>#ede9fe</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-top-color</span>: <span style=color:#bd93f9>#7c3aed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>50</span><span style=color:#8be9fd>%</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>animation</span>: spin <span style=color:#bd93f9>0.8</span><span style=color:#8be9fd>s</span> <span style=color:#ff79c6>linear</span> <span style=color:#ff79c6>infinite</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>margin</span>: <span style=color:#bd93f9>16</span><span style=color:#8be9fd>px</span> <span style=color:#ff79c6>auto</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;spinner&#34;</span>&gt;&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h3 id=pulse>Pulse</h3><div class=demo-block><div class=demo-preview><iframe srcdoc="<!doctype html><html><head><meta charset='utf-8'><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  @keyframes pulse {
+    0%, 100% { transform: scale(1);    opacity: 1; }
+    50%       { transform: scale(1.12); opacity: 0.7; }
+  }
+  .badge {
+    display: inline-block;
+    background: #7c3aed;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 99px;
+    font-weight: bold;
+    animation: pulse 1.4s ease-in-out infinite;
+    margin: 16px;
+  }
+</style>
+<div class=&#34;badge&#34;>Live</div></body></html>" frameborder=0 class=demo-iframe style=height:120px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  @<span style=color:#ff79c6>keyframes</span> <span style=color:#ff79c6>pulse</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>0</span><span style=color:#ff79c6>%,</span> <span style=color:#ff79c6>100</span><span style=color:#ff79c6>%</span> { <span style=color:#ff79c6>transform</span>: <span style=color:#8be9fd;font-style:italic>scale</span>(<span style=color:#bd93f9>1</span>);    <span style=color:#ff79c6>opacity</span>: <span style=color:#bd93f9>1</span>; }
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>50</span><span style=color:#ff79c6>%</span>       { <span style=color:#ff79c6>transform</span>: <span style=color:#8be9fd;font-style:italic>scale</span>(<span style=color:#bd93f9>1.12</span>); <span style=color:#ff79c6>opacity</span>: <span style=color:#bd93f9>0.7</span>; }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>badge</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>inline-block</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#7c3aed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>color</span>: <span style=color:#bd93f9>#fff</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>padding</span>: <span style=color:#bd93f9>10</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>24</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>99</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>font-weight</span>: <span style=color:#ff79c6>bold</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>animation</span>: pulse <span style=color:#bd93f9>1.4</span><span style=color:#8be9fd>s</span> <span style=color:#ff79c6>ease-in-out</span> <span style=color:#ff79c6>infinite</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>margin</span>: <span style=color:#bd93f9>16</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;badge&#34;</span>&gt;Live&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h2 id=animation-properties>animation properties</h2><table><thead><tr><th>Property</th><th>What it does</th></tr></thead><tbody><tr><td><code>animation-name</code></td><td>Which <code>@keyframes</code> to use</td></tr><tr><td><code>animation-duration</code></td><td>How long one cycle takes</td></tr><tr><td><code>animation-timing-function</code></td><td>Pace within each cycle</td></tr><tr><td><code>animation-delay</code></td><td>Wait before starting</td></tr><tr><td><code>animation-iteration-count</code></td><td><code>1</code>, <code>3</code>, <code>infinite</code></td></tr><tr><td><code>animation-direction</code></td><td><code>normal</code>, <code>reverse</code>, <code>alternate</code></td></tr><tr><td><code>animation-fill-mode</code></td><td><code>forwards</code> keeps the end state; <code>both</code> applies start state during delay</td></tr></tbody></table><h2 id=respecting-user-preferences>Respecting user preferences</h2><p>Wrap motion in <code>prefers-reduced-motion</code> so users who opt out get a static version:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span>@<span style=color:#ff79c6>media</span> <span style=color:#ff79c6>(</span><span style=color:#ff79c6>prefers-reduced-motion</span><span style=color:#ff79c6>:</span> <span style=color:#ff79c6>reduce</span><span style=color:#ff79c6>)</span> {
+</span></span><span style=display:flex><span>  <span style=color:#ff79c6>*,</span> <span style=color:#ff79c6>*</span>::before<span style=color:#ff79c6>,</span> <span style=color:#ff79c6>*</span>::after {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>animation-duration</span>: <span style=color:#bd93f9>0.01</span><span style=color:#8be9fd>ms</span> <span style=color:#ff79c6>!important</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>transition-duration</span>: <span style=color:#bd93f9>0.01</span><span style=color:#8be9fd>ms</span> <span style=color:#ff79c6>!important</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></article></main></div><footer class=site-footer>© 2026 <a href=https://github.com/MPZ-00>MPZ-00</a> · Licensed under AGPL-3.0</footer><script>(function(){const e=document.documentElement,n=document.getElementById("themeToggle"),s={dark:{bg:"#1a1730",fg:"#e8e4ff"},light:{bg:"#ffffff",fg:"#222222"}},o=":root{--ds-bg:#1a1730;--ds-surface:#2d2a45;--ds-surface-alt:#2a1f4a;--ds-border:#2d2a45;--ds-muted:#c0b8e8;--ds-text:#e8e4ff}";function i(e){const t=s[e];document.querySelectorAll(".demo-iframe").forEach(function(n){function s(){try{const i=n.contentDocument||n.contentWindow.document;if(!i||!i.body)return;i.body.style.background=t.bg,i.body.style.color=t.fg;var s=i.getElementById("__dm");s||(s=i.createElement("style"),s.id="__dm",i.head.appendChild(s)),s.textContent=e==="dark"?o:""}catch{}}n.addEventListener("load",s,{once:!0}),n.contentDocument&&n.contentDocument.readyState==="complete"&&(n.removeEventListener("load",s),s())})}function t(t){e.setAttribute("data-theme",t),localStorage.setItem("theme",t),i(t)}const a=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");t(a),n.addEventListener("click",function(){t(e.getAttribute("data-theme")==="dark"?"light":"dark")})})()</script></body></html>

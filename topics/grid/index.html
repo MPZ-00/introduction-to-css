@@ -1,0 +1,185 @@
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Grid — Introduction to CSS</title><link rel=stylesheet href=/css/style.css></head><body><header class=site-header><a class=site-title href=/>Introduction to CSS</a>
+<span class=site-tagline>hands-on reference</span>
+<button class=theme-toggle id=themeToggle aria-label="Toggle dark mode">
+<svg class="icon icon-sun" width="1.1em" height="1.1em" aria-hidden="true"><use href="/icons.svg#icon-sun"/></svg>
+<svg class="icon icon-moon" width="1.1em" height="1.1em" aria-hidden="true"><use href="/icons.svg#icon-moon"/></svg></button></header><div class=layout><nav class=sidebar><p class=nav-label>Topics</p><ul><li><a href=/>Home</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/selectors/>Selectors</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/box-model/>Box Model</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/colors/>Colors</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/typography/>Typography</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/flexbox/>Flexbox</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/grid/ class=active>Grid</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/animations/>Animations</a></li><li><a href=https://introduction-to-css.mpz-00.me/topics/positioning/>Positioning</a></li></ul></nav><main class=content><article class=topic><h1>Grid</h1><p class=lead>Place items in rows and columns at once</p><div class=topic-body><p>CSS Grid works in two dimensions. Flexbox handles a single row or column; Grid handles both at once.</p><h2 id=defining-a-grid>Defining a grid</h2><p><code>display: grid</code> plus <code>grid-template-columns</code> creates a grid. <code>gap</code> adds gutter space.</p><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;  /* three equal columns */
+    gap: 8px;
+  }
+  .cell {
+    background: #7c3aed;
+    color: #fff;
+    padding: 16px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+  }
+</style>
+<div class="grid">
+  <div class="cell">1</div>
+  <div class="cell">2</div>
+  <div class="cell">3</div>
+  <div class="cell">4</div>
+  <div class="cell">5</div>
+  <div class="cell">6</div>
+</div></body></html>' frameborder=0 class=demo-iframe style=height:160px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>grid</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>grid</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-columns</span>: <span style=color:#bd93f9>1</span>fr <span style=color:#bd93f9>1</span>fr <span style=color:#bd93f9>1</span>fr;  <span style=color:#6272a4>/* three equal columns */</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>gap</span>: <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>cell</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>background</span>: <span style=color:#bd93f9>#7c3aed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>color</span>: <span style=color:#bd93f9>#fff</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>padding</span>: <span style=color:#bd93f9>16</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>border-radius</span>: <span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>text-align</span>: <span style=color:#ff79c6>center</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>font-weight</span>: <span style=color:#ff79c6>bold</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;grid&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;cell&#34;</span>&gt;1&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;cell&#34;</span>&gt;2&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;cell&#34;</span>&gt;3&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;cell&#34;</span>&gt;4&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;cell&#34;</span>&gt;5&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;cell&#34;</span>&gt;6&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><p>The <code>fr</code> unit means &ldquo;fraction of available space&rdquo;. <code>1fr 1fr 1fr</code> is three equal columns. <code>2fr 1fr</code> gives the first column twice the space.</p><h2 id=repeat>repeat()</h2><p>Avoid repetition with <code>repeat(count, size)</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#6272a4>/* same result as 1fr 1fr 1fr 1fr */</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>grid-template-columns</span><span style=color:#ff79c6>:</span> <span style=color:#ff79c6>repeat</span><span style=color:#ff79c6>(</span><span style=color:#ff79c6>4</span><span style=color:#ff79c6>,</span> <span style=color:#ff79c6>1fr</span><span style=color:#ff79c6>);</span>
+</span></span></code></pre></div><h2 id=mixing-units>Mixing units</h2><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .g2 {
+    display: grid;
+    grid-template-columns: 120px 1fr 2fr;
+    gap: 8px;
+  }
+  .c { background:#ddd6fe; border-radius:6px; padding:12px 8px; text-align:center; font-size:.8rem; color:#3b0764; font-weight:600; }
+</style>
+<div class="g2">
+  <div class="c">120px fixed</div>
+  <div class="c">1fr</div>
+  <div class="c">2fr (twice as wide)</div>
+</div></body></html>' frameborder=0 class=demo-iframe style=height:120px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>g2</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>grid</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-columns</span>: <span style=color:#bd93f9>120</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>1</span>fr <span style=color:#bd93f9>2</span>fr;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>gap</span>: <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>c</span> { <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#ddd6fe</span>; <span style=color:#ff79c6>border-radius</span>:<span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>padding</span>:<span style=color:#bd93f9>12</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>text-align</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>font-size</span>:<span style=color:#bd93f9>.8</span><span style=color:#8be9fd>rem</span>; <span style=color:#ff79c6>color</span>:<span style=color:#bd93f9>#3b0764</span>; <span style=color:#ff79c6>font-weight</span>:<span style=color:#bd93f9>600</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;g2&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;120px fixed&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;1fr&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;2fr (twice as wide)&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h2 id=spanning-cells>Spanning cells</h2><p>Use <code>grid-column</code> and <code>grid-row</code> to make a cell span multiple tracks.</p><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .g3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 60px 60px;
+    gap: 6px;
+  }
+  .c { background:#7c3aed; color:#fff; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:bold; }
+  .span2col { grid-column: span 2; background:#a78bfa; }
+  .span2row { grid-row: span 2; background:#5b21b6; }
+</style>
+<div class="g3">
+  <div class="c span2col">spans 2 columns</div>
+  <div class="c span2row">spans 2 rows</div>
+  <div class="c">3</div>
+  <div class="c">4</div>
+</div></body></html>' frameborder=0 class=demo-iframe style=height:180px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>g3</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>grid</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-columns</span>: <span style=color:#50fa7b>repeat</span>(<span style=color:#bd93f9>3</span>, <span style=color:#bd93f9>1</span>fr);
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-rows</span>: <span style=color:#bd93f9>60</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>60</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>gap</span>: <span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>c</span> { <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#7c3aed</span>; <span style=color:#ff79c6>color</span>:<span style=color:#bd93f9>#fff</span>; <span style=color:#ff79c6>border-radius</span>:<span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>display</span>:<span style=color:#ff79c6>flex</span>; <span style=color:#ff79c6>align-items</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>justify-content</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>font-weight</span>:<span style=color:#ff79c6>bold</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>span2col</span> { <span style=color:#ff79c6>grid-column</span>: span <span style=color:#bd93f9>2</span>; <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#a78bfa</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>span2row</span> { <span style=color:#ff79c6>grid-row</span>: span <span style=color:#bd93f9>2</span>; <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#5b21b6</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;g3&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c span2col&#34;</span>&gt;spans 2 columns&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c span2row&#34;</span>&gt;spans 2 rows&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;3&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;4&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h2 id=grid-template-areas>grid-template-areas</h2><p>Name your grid regions for a visual layout definition:</p><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .page {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    grid-template-rows: 44px 1fr 32px;
+    grid-template-areas:
+      "header  header"
+      "sidebar main"
+      "footer  footer";
+    gap: 6px;
+    height: 190px;
+  }
+  .page > * { border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:bold; color:#fff; }
+  .hdr  { grid-area: header;  background:#7c3aed; }
+  .side { grid-area: sidebar; background:#a78bfa; }
+  .main { grid-area: main;    background:#ddd6fe; color:#3b0764; }
+  .ftr  { grid-area: footer;  background:#6d28d9; }
+</style>
+<div class="page">
+  <div class="hdr">header</div>
+  <div class="side">sidebar</div>
+  <div class="main">main content</div>
+  <div class="ftr">footer</div>
+</div></body></html>' frameborder=0 class=demo-iframe style=height:220px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>page</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>grid</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-columns</span>: <span style=color:#bd93f9>160</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>1</span>fr;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-rows</span>: <span style=color:#bd93f9>44</span><span style=color:#8be9fd>px</span> <span style=color:#bd93f9>1</span>fr <span style=color:#bd93f9>32</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-areas</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f1fa8c>&#34;header  header&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f1fa8c>&#34;sidebar main&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f1fa8c>&#34;footer  footer&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>gap</span>: <span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>height</span>: <span style=color:#bd93f9>190</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>page</span> <span style=color:#ff79c6>&gt;</span> <span style=color:#ff79c6>*</span> { <span style=color:#ff79c6>border-radius</span>:<span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>display</span>:<span style=color:#ff79c6>flex</span>; <span style=color:#ff79c6>align-items</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>justify-content</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>font-size</span>:<span style=color:#bd93f9>.8</span><span style=color:#8be9fd>rem</span>; <span style=color:#ff79c6>font-weight</span>:<span style=color:#ff79c6>bold</span>; <span style=color:#ff79c6>color</span>:<span style=color:#bd93f9>#fff</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>hdr</span>  { <span style=color:#ff79c6>grid-area</span>: header;  <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#7c3aed</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>side</span> { <span style=color:#ff79c6>grid-area</span>: sidebar; <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#a78bfa</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>main</span> { <span style=color:#ff79c6>grid-area</span>: main;    <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#ddd6fe</span>; <span style=color:#ff79c6>color</span>:<span style=color:#bd93f9>#3b0764</span>; }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>ftr</span>  { <span style=color:#ff79c6>grid-area</span>: footer;  <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#6d28d9</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;page&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;hdr&#34;</span>&gt;header&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;side&#34;</span>&gt;sidebar&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;main&#34;</span>&gt;main content&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;ftr&#34;</span>&gt;footer&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;</span></span></code></pre></div></details></div><h2 id=auto-fill-and-auto-fit>auto-fill and auto-fit</h2><p>Responsive grids without media queries:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#6272a4>/* as many columns as fit, each at least 200px */</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>grid-template-columns</span><span style=color:#ff79c6>:</span> <span style=color:#ff79c6>repeat</span><span style=color:#ff79c6>(</span><span style=color:#ff79c6>auto-fill</span><span style=color:#ff79c6>,</span> <span style=color:#ff79c6>minmax</span><span style=color:#ff79c6>(</span><span style=color:#ff79c6>200px</span><span style=color:#ff79c6>,</span> <span style=color:#ff79c6>1fr</span><span style=color:#ff79c6>));</span>
+</span></span></code></pre></div><div class=demo-block><div class=demo-preview><iframe srcdoc='<!doctype html><html><head><meta charset=&#39;utf-8&#39;><style>:root{--ds-bg:#fff;--ds-surface:#f0ebff;--ds-surface-alt:#ede9fe;--ds-border:#e4deff;--ds-muted:#6b7280;--ds-text:#1e1b4b}*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:1rem;background:var(--ds-bg);color:var(--ds-text)}</style></head><body><style>
+  .auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  .c { background:#7c3aed; color:#fff; border-radius:6px; padding:16px; text-align:center; font-weight:bold; }
+</style>
+<div class="auto">
+  <div class="c">A</div>
+  <div class="c">B</div>
+  <div class="c">C</div>
+  <div class="c">D</div>
+  <div class="c">E</div>
+</div>
+<p style="font-size:.75rem;color:var(--ds-muted);margin-top:6px">Resize the browser. Columns reflow automatically.</p></body></html>' frameborder=0 class=demo-iframe style=height:160px></iframe></div><details class=demo-source><summary>View code</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>auto</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>display</span>: <span style=color:#ff79c6>grid</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>grid-template-columns</span>: <span style=color:#50fa7b>repeat</span>(<span style=color:#ff79c6>auto</span><span style=color:#ff79c6>-</span><span style=color:#ff79c6>fill</span>, <span style=color:#50fa7b>minmax</span>(<span style=color:#bd93f9>100</span><span style=color:#8be9fd>px</span>, <span style=color:#bd93f9>1</span>fr));
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>gap</span>: <span style=color:#bd93f9>8</span><span style=color:#8be9fd>px</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  .<span style=color:#50fa7b>c</span> { <span style=color:#ff79c6>background</span>:<span style=color:#bd93f9>#7c3aed</span>; <span style=color:#ff79c6>color</span>:<span style=color:#bd93f9>#fff</span>; <span style=color:#ff79c6>border-radius</span>:<span style=color:#bd93f9>6</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>padding</span>:<span style=color:#bd93f9>16</span><span style=color:#8be9fd>px</span>; <span style=color:#ff79c6>text-align</span>:<span style=color:#ff79c6>center</span>; <span style=color:#ff79c6>font-weight</span>:<span style=color:#ff79c6>bold</span>; }
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>style</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;auto&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;A&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;B&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;C&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;D&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#ff79c6>div</span> <span style=color:#50fa7b>class</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;c&#34;</span>&gt;E&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#ff79c6>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#ff79c6>p</span> <span style=color:#50fa7b>style</span><span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#34;font-size:.75rem;color:var(--ds-muted);margin-top:6px&#34;</span>&gt;Resize the browser. Columns reflow automatically.&lt;/<span style=color:#ff79c6>p</span>&gt;</span></span></code></pre></div></details></div><h2 id=grid-vs-flexbox>Grid vs Flexbox</h2><p>Flexbox works best for a single row or column where items should adapt to their content.</p><p>Grid works best when you need both dimensions at once: page layouts, dashboards, card grids.</p><p>They work well together. Grid for the page structure, flex for the items inside.</p></div></article></main></div><footer class=site-footer>© 2026 <a href=https://github.com/MPZ-00>MPZ-00</a> · Licensed under AGPL-3.0</footer><script>(function(){const e=document.documentElement,n=document.getElementById("themeToggle"),s={dark:{bg:"#1a1730",fg:"#e8e4ff"},light:{bg:"#ffffff",fg:"#222222"}},o=":root{--ds-bg:#1a1730;--ds-surface:#2d2a45;--ds-surface-alt:#2a1f4a;--ds-border:#2d2a45;--ds-muted:#c0b8e8;--ds-text:#e8e4ff}";function i(e){const t=s[e];document.querySelectorAll(".demo-iframe").forEach(function(n){function s(){try{const i=n.contentDocument||n.contentWindow.document;if(!i||!i.body)return;i.body.style.background=t.bg,i.body.style.color=t.fg;var s=i.getElementById("__dm");s||(s=i.createElement("style"),s.id="__dm",i.head.appendChild(s)),s.textContent=e==="dark"?o:""}catch{}}n.addEventListener("load",s,{once:!0}),n.contentDocument&&n.contentDocument.readyState==="complete"&&(n.removeEventListener("load",s),s())})}function t(t){e.setAttribute("data-theme",t),localStorage.setItem("theme",t),i(t)}const a=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");t(a),n.addEventListener("click",function(){t(e.getAttribute("data-theme")==="dark"?"light":"dark")})})()</script></body></html>
