@@ -1,0 +1,10 @@
+baseURL = 'https://introduction-to-css.mpz-00.me/'
+languageCode = 'en-us'
+title = 'Introduction to CSS'
+theme = 'css-demo'
+
+[markup.highlight]
+  style = 'dracula'
+  lineNos = false
+  codeFences = true
+  noClasses = true

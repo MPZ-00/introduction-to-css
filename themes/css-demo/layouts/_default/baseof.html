@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+    <span class="site-tagline">hands-on reference</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      {{ $sprite := resources.Get "icons.svg" }}
+      {{ if $sprite }}
+      <svg class="icon icon-sun"  width="1.1em" height="1.1em" aria-hidden="true"><use href="{{ $sprite.RelPermalink }}#icon-sun"></use></svg>
+      <svg class="icon icon-moon" width="1.1em" height="1.1em" aria-hidden="true"><use href="{{ $sprite.RelPermalink }}#icon-moon"></use></svg>
+      {{ end }}
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <p class="nav-label">Topics</p>
+      <ul>
+        <li><a href="{{ "/" | relURL }}" {{ if .IsHome }}class="active"{{ end }}>Home</a></li>
+        {{ $topics := where .Site.RegularPages "Section" "topics" }}
+        {{ range $topics.ByParam "weight" }}
+        <li>
+          <a href="{{ .Permalink }}"{{ if eq $.RelPermalink .RelPermalink }} class="active"{{ end }}>
+            {{ .Title }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <main class="content">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    © {{ now.Year }} <a href="https://github.com/MPZ-00">MPZ-00</a> · Licensed under AGPL-3.0
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const btn  = document.getElementById('themeToggle');
+
+      function applyTheme(t) {
+        root.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+      }
+
+      const saved = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      applyTheme(saved);
+
+      btn.addEventListener('click', function () {
+        applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+{{/* Usage: {{ partial "icon.html" "icon-target" }} */}}
+{{ $id := . }}
+{{ $sprite := resources.Get "icons.svg" }}
+{{ if $sprite }}<svg class="icon" width="1em" height="1em" aria-hidden="true" focusable="false"><use href="{{ $sprite.RelPermalink }}#{{ $id }}"></use></svg>{{ end }}

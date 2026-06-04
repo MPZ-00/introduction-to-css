@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="home">
+  <div class="home-hero">
+    <h1>Introduction to CSS</h1>
+    <p>Choose a topic and try the examples as you go.</p>
+  </div>
+
+  <div class="topic-cards">
+    {{ $topics := where .Site.RegularPages "Section" "topics" }}
+    {{ range $topics.ByParam "weight" }}
+    <a class="card" href="{{ .Permalink }}">
+      <span class="card-icon">{{ partial "icon.html" (.Params.iconId | default "icon-code") }}</span>
+      <strong>{{ .Title }}</strong>
+      <span>{{ .Params.description }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
