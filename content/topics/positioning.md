@@ -26,7 +26,7 @@ Stays in the flow but can be nudged with `top`/`right`/`bottom`/`left`, relative
   <div class="box moved">2</div>
   <div class="box">3</div>
 </div>
-<p style="font-size:.8rem;color:var(--ds-muted);margin-top:8px">Box 2 is nudged — its original space is still reserved, so Box 3 is not displaced.</p>
+<p style="font-size:.8rem;color:var(--ds-muted);margin-top:8px">Box 2 is nudged, its original space stays reserved, so Box 3 is not displaced.</p>
 {{< /demo >}}
 
 ## absolute

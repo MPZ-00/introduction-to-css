@@ -73,9 +73,9 @@ A unitless number like `1.5` scales with the font size, so `1rem` text and `2rem
   .normal { line-height: 1.5; background:#dcfce7; padding:8px; margin-bottom:8px; }
   .loose  { line-height: 2.2; background:#dbeafe; padding:8px; }
 </style>
-<p class="tight">line-height: 1 — Tight. Lines are very close together and long text becomes hard to read quickly.</p>
-<p class="normal">line-height: 1.5 — Comfortable. The standard for body text.</p>
-<p class="loose">line-height: 2.2 — Loose. Airy, used in some editorial designs.</p>
+<p class="tight">line-height: 1: Tight. Lines are very close together and long text becomes hard to read quickly.</p>
+<p class="normal">line-height: 1.5: Comfortable. Standard for body text.</p>
+<p class="loose">line-height: 2.2: Loose. Airy, used in some editorial designs.</p>
 {{< /demo >}}
 
 ## letter-spacing and word-spacing

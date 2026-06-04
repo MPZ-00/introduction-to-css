@@ -122,7 +122,7 @@ Define once with `--name: value;` on a selector (usually `:root`), use anywhere 
   }
 </style>
 <div class="card">Card one</div>
-<div class="card">Card two — both use the same variable</div>
+<div class="card">Card two uses the same variable</div>
 {{< /demo >}}
 
 Change `--brand` once and everything using it updates. That's the whole trick behind CSS theming.

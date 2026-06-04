@@ -17,7 +17,7 @@ Write the tag name and it matches every element of that type.
   h3 { color: tomato; margin: 0 0 4px; }
 </style>
 <h3>This is an h3</h3>
-<p>This is a paragraph — selected by <code>p</code>.</p>
+<p>This paragraph is selected by <code>p</code>.</p>
 <p>Another paragraph, also selected.</p>
 {{< /demo >}}
 
